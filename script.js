@@ -1,4 +1,4 @@
-let questiions = [
+let questions = [
   {
     question: "Was ist die Hauptstadt von Frankreich?",
     answer_1: "Berlin",
@@ -40,3 +40,7 @@ let questiions = [
     right_answer: "Merkur",
   },
 ];
+
+function init() {
+    document.getElementById('allQuestions').innerHTML = questions.length;
+}

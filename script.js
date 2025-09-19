@@ -5,7 +5,7 @@ let questions = [
     answer_2: "Madrid",
     answer_3: "Paris",
     answer_4: "Rom",
-    right_answer: "Paris",
+    right_answer: 3,
   },
   {
     question: "Welches Tier ist ein Säugetier?",
@@ -13,7 +13,7 @@ let questions = [
     answer_2: "Delfin",
     answer_3: "Forelle",
     answer_4: "Krokodil",
-    right_answer: "Delfin",
+    right_answer: 2,
   },
   {
     question: "Welche Programmiersprache wird im Web häufig verwendet?",
@@ -21,7 +21,7 @@ let questions = [
     answer_2: "JavaScript",
     answer_3: "C++",
     answer_4: "Java",
-    right_answer: "JavaScript",
+    right_answer: 2,
   },
   {
     question: "Wie viele Kontinente gibt es auf der Erde?",
@@ -29,7 +29,7 @@ let questions = [
     answer_2: "6",
     answer_3: "7",
     answer_4: "8",
-    right_answer: "7",
+    right_answer: 3,
   },
   {
     question: "Welcher Planet ist der Sonne am nächsten?",
@@ -37,7 +37,7 @@ let questions = [
     answer_2: "Merkur",
     answer_3: "Mars",
     answer_4: "Jupiter",
-    right_answer: "Merkur",
+    right_answer: 2,
   },
 ];
 
@@ -56,4 +56,11 @@ function showQuestion() {
   document.getElementById("answer_2").innerHTML = question["answer_2"];
   document.getElementById("answer_3").innerHTML = question["answer_3"];
   document.getElementById("answer_4").innerHTML = question["answer_4"];
+}
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+console.log('Selected answer is' , selection);
+console.log('Current Question is' , question['right_answer']);
+
 }

@@ -59,8 +59,17 @@ function showQuestion() {
 }
 
 function answer(selection) {
-    let question = questions[currentQuestion];
-console.log('Selected answer is' , selection);
-console.log('Current Question is' , question['right_answer']);
+  let question = questions[currentQuestion];
+  console.log("Selected answer is", selection);
+  let selectedQuestionNumber = selection.slice(-1);
+  console.log("slectedQUestionNumber is", selectedQuestionNumber);
+  console.log("Current Question is", question["right_answer"]);
 
+  if (selectedQuestionNumber == question["right_answer"]) {
+    console.log("Richtige Antwort");
+    document.getElementById(selection).parentNode.classList.add("bg-success");
+  } else {
+    console.log("Falsche Antwort");
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+  }
 }

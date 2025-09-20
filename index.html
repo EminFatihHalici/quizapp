@@ -22,14 +22,22 @@
 
     <div class="container">
         <div class="card quiz_card">
-            <img src="./assets/logo.png" class="card-img-top" alt="..." />
+                <div><img src="./assets/logo.png" class="card-img-top" id="headerImage"/></div>
 
-             <div class="card-body" id="endScreen" style="display: none;">Ende</div>
+             <div class="card-body" id="endScreen" style="display: none;">
+                <div class="text-center rbk-bold">Ende</div>
 
-                <div class="card-body" id="questionBody">
-                        <h5 class="card-title" id="questiontext">Frage</h5>
+                <div class="text-center rbk-bold">
+                    Du hast <b id="amountRightQuestions">XXX</b> Fragen von <b id="amountOfQuestions">XXX</b> Fragen richtig beantwortet.
+                </div>
 
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+
+            </div>
+
+                <div class="card-body rbk" id="questionBody">
+                        <h5 class="card-title rbk-bold" id="questiontext">Frage</h5>
+
+                        <div class="card quiz-answer-card mb-2 rbk" onclick="answer('answer_1')">
                             <div class="card-body" id="answer_1">Antwort</div>
                         </div>
 

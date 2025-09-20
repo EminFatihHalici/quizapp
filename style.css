@@ -30,3 +30,16 @@ body {
 .bg-success, .bg-danger {
     color: white !important;
 }
+
+@font-face {
+    font-family: "PT-Sans";
+    src: url(./fonts/PTSans-Bold.ttf);
+    src: url(./fonts/PTSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url(./fonts/Rubik-Bold.ttf);
+    src: url(./fonts/Rubik-Medium.ttf);
+    src: url(./fonts/Rubik-Regular.ttf);
+}

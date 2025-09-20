@@ -43,3 +43,26 @@ body {
     src: url(./fonts/Rubik-Medium.ttf);
     src: url(./fonts/Rubik-Regular.ttf);
 }
+
+.rbk-medium{
+    font-family: Rubik !important;
+    font-weight: medium !important;
+}
+
+.rbk-bold{
+    font-family: Rubik !important;
+    font-weight: bold !important;
+}
+
+.rbk{
+    font-family: Rubik !important;
+}
+
+.pt-sans{
+    font-family: PT-Sans !important;
+}
+
+.pt-sans-bold{
+    font-family: PT-Sans !important;
+    font-weight: bold !important;
+}

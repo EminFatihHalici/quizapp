@@ -60,8 +60,11 @@ function showQuestion() {
   } else {
     let question = questions[currentQuestion];
 
+    let percent = (currentQuestion + 1) / questions.length; 
+    percent = percent * 100;
+    document.getElementById('progress').innerHTML = `${percent} %`;
+    document.getElementById('progress').style = `width: ${percent}%;`;
     document.getElementById("question-number").innerHTML = currentQuestion + 1;
-
     document.getElementById("questiontext").innerHTML = question["question"];
     document.getElementById("answer_1").innerHTML = question["answer_1"];
     document.getElementById("answer_2").innerHTML = question["answer_2"];

@@ -66,3 +66,9 @@ body {
     font-family: PT-Sans !important;
     font-weight: bold !important;
 }
+
+.btn_row{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}

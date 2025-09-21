@@ -45,7 +45,7 @@ let currentQuestion = 0;
 
 let rightQuestions = 0;
 
-let AUDIO_SUCCES = new Audio('audio/success.mp3'); 
+let AUDIO_SUCCES = new Audio('audio/success.mp3');
 let AUDIO_FAIL = new Audio('audio/failure.mp3');
 
 function init() {
@@ -54,26 +54,41 @@ function init() {
 }
 
 function showQuestion() {
-  if (currentQuestion >= questions.length) {
-    document.getElementById('endScreen').style = "";
-    document.getElementById('questionBody').style = 'display: none';
-    document.getElementById('amountOfQuestions').innerHTML = questions.length;
-    document.getElementById('amountRightQuestions').innerHTML = rightQuestions;
-    document.getElementById('headerImage').src = './assets/tropy.png';
+  if (gameIsOver()) {
+    showEndScreen();
   } else {
-    let question = questions[currentQuestion];
-
-    let percent = (currentQuestion + 1) / questions.length;
-    percent = percent * 100;
-    document.getElementById('progress').innerHTML = `${percent} %`;
-    document.getElementById('progress').style = `width: ${percent}%;`;
-    document.getElementById("question-number").innerHTML = currentQuestion + 1;
-    document.getElementById("questiontext").innerHTML = question["question"];
-    document.getElementById("answer_1").innerHTML = question["answer_1"];
-    document.getElementById("answer_2").innerHTML = question["answer_2"];
-    document.getElementById("answer_3").innerHTML = question["answer_3"];
-    document.getElementById("answer_4").innerHTML = question["answer_4"];
+    updateProgressBar();
+    updateToNextQuestion();
   }
+}
+
+function gameIsOver() {
+  return currentQuestion >= questions.length;
+}
+
+function updateProgressBar() {
+  let percent = (currentQuestion + 1) / questions.length;
+  percent = percent * 100;
+  document.getElementById('progress').innerHTML = `${percent} %`;
+  document.getElementById('progress').style = `width: ${percent}%;`;
+}
+
+function updateToNextQuestion() {
+  let question = questions[currentQuestion];
+  document.getElementById("question-number").innerHTML = currentQuestion + 1;
+  document.getElementById("questiontext").innerHTML = question["question"];
+  document.getElementById("answer_1").innerHTML = question["answer_1"];
+  document.getElementById("answer_2").innerHTML = question["answer_2"];
+  document.getElementById("answer_3").innerHTML = question["answer_3"];
+  document.getElementById("answer_4").innerHTML = question["answer_4"];
+}
+
+function showEndScreen() {
+  document.getElementById('endScreen').style = "";
+  document.getElementById('questionBody').style = 'display: none';
+  document.getElementById('amountOfQuestions').innerHTML = questions.length;
+  document.getElementById('amountRightQuestions').innerHTML = rightQuestions;
+  document.getElementById('headerImage').src = './assets/tropy.png';
 }
 
 function answer(selection) {
@@ -82,7 +97,7 @@ function answer(selection) {
 
   let idOfRightAnswer = `answer_${question["right_answer"]}`;
 
-  if (selectedQuestionNumber == question["right_answer"]) {
+  if (rightAnswerSelected(selectedQuestionNumber, question)) {
     document.getElementById(selection).parentNode.classList.add("bg-success");
     rightQuestions++;
     AUDIO_SUCCES.play();
@@ -91,9 +106,13 @@ function answer(selection) {
     document
       .getElementById(idOfRightAnswer)
       .parentNode.classList.add("bg-success");
-      AUDIO_FAIL.play();
+    AUDIO_FAIL.play();
   }
   document.getElementById("next-button").disabled = false;
+}
+
+function rightAnswerSelected(selectedQuestionNumber, question) {
+  return selectedQuestionNumber == question["right_answer"];
 }
 
 function nextQuestion() {

@@ -43,7 +43,7 @@ let questions = [
 
 let currentQuestion = 0;
 
-let rightQuestions = 0; 
+let rightQuestions = 0;
 
 function init() {
   showQuestion();
@@ -60,7 +60,7 @@ function showQuestion() {
   } else {
     let question = questions[currentQuestion];
 
-    let percent = (currentQuestion + 1) / questions.length; 
+    let percent = (currentQuestion + 1) / questions.length;
     percent = percent * 100;
     document.getElementById('progress').innerHTML = `${percent} %`;
     document.getElementById('progress').style = `width: ${percent}%;`;
@@ -107,6 +107,15 @@ function resetAnswerButtons() {
   document.getElementById("answer_3").parentNode.classList.remove("bg-success");
   document.getElementById("answer_4").parentNode.classList.remove("bg-danger");
   document.getElementById("answer_4").parentNode.classList.remove("bg-success");
+}
+
+function restartGame() {
+  document.getElementById('headerImage').src = "./assets/logo.png";
+  document.getElementById('questionBody').style = "";
+  document.getElementById('endScreen').style = 'display: none';
+  currentQuestion = 0;
+  rightQuestions = 0;
+  init();
 }
 
 
